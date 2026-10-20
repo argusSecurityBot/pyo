@@ -2422,7 +2422,7 @@ typedef Py_ssize_t T_SIZE_T;
     if (globdur != 0) \
         dur = globdur; \
  \
-    Stream_setStreamChnl(self->stream, chnltmp % self->nchnls); \
+    Stream_setStreamChnl(self->stream, (chnltmp % self->nchnls + self->nchnls) % self->nchnls); \
     Stream_setStreamToDac(self->stream, 1); \
     if (del == 0) { \
         Stream_setBufferCountWait(self->stream, 0); \
